@@ -1,0 +1,31 @@
+<div class="Page navigation text-center">
+<ul class="pagination">
+<!-- <div>
+  <span>{{i+1}}.</span>
+  <span>{{data.questions}}</span>
+</div> -->
+
+<li class="page-item" *ngFor="let data of displayData;let i=index" (click)="callQuestions(i)">
+  
+  <a class="page-link" style="cursor:pointer">{{i+1}}</a>
+</li>
+</ul>
+</div>
+
+<div>
+  <div >
+  <span>{{currentQues}}.</span>
+  <span>{{disp.questions}}</span>
+  <div [ngSwitch]="disp.type">
+    <div *ngSwitchCase="'radio'">
+      <div *ngFor="let choice of disp.choice"> <input type="radio" name="{{currentQues}}"> {{choice}}</div>
+    </div>
+    <div *ngSwitchCase="'text'">
+      <input type="text" class="form-control" style="width:200px">
+    </div>
+
+  </div>
+</div>
+
+</div>
+
